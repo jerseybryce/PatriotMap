@@ -1,0 +1,78 @@
+body{
+    margin: 0px;
+}
+.container{
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    height: 100vh;
+    background-color: #442133;
+}
+
+.myBanner{
+    height: 60px;
+    background-color: #006633;
+}
+
+.mySubBanner{
+    height: 10px;
+    background-color: #FFCC33;
+}
+
+.myBanner h1{
+    margin: 0px;
+    text-align: center;
+    font-size: 3em;
+    font-family: sans-serif;
+    color: #FFCC33;
+}
+
+.settings{
+    display: inline-block;
+    margin: 0px;
+    height: 60%;
+    width: 10%;
+    background-color: #006633;
+    border-color: #FFCC33;
+}
+
+.userProfilePic{
+    line-height: 5px;
+    height: 50px;
+    width:  50px;
+    background-color: azure;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 4px;
+    margin-top: 4px;
+}
+
+.settingsFirstRow{
+    margin: 0px;
+    height: 65px;
+    background-color: #FFCC33;
+}
+
+.centerContent{
+    font-size: 20px;
+    vertical-align: center;
+    align-content: center;
+}
+
+.settingOptions{
+    margin: 0px;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+    background-color: white;
+}
+
+.newsFeedContainer{
+    horiz-align: center;
+    vertical-align: top;
+    display: inline-block;
+    min-height: 100%;
+    min-width: 80%;
+    text-align: center;
+    background-color: #FFCC33;
+}
