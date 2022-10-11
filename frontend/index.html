@@ -4,7 +4,6 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>Patriot Map</title>
-        <link rel ="stylesheet" type="text/css" href = "styling.css">
         <!--this is the code for the leaflet map-->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
                                integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
@@ -21,34 +20,34 @@
         </style>
     </head>
     <body>
-        <div id="WholeScreen" class="container">
-            <div class="container-fluid d-flex justify-content-center">
-                <h1>Patriot Map</h1>
-            </div>
-            <div id="sub-banner" class="mySubBanner"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <ul id="settings section" class="settings nav flex-column">
-                            <li class="nav-item">
-                                <span class = "userProfilePic"></span>
-                                <span class = "centerContent"> name of the user</span>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="userAccount.html">My account</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="settings.html">Settings</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="patriotSchedule.html">Patriot Schedule</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="map.html">My Map</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="map" class="col-6">
+        <div class="container-fluid d-flex justify-content-center">
+            <h1>Patriot Map</h1>
+        </div>
+        <div id="sub-banner" class="mySubBanner"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2">
+                    <ul id="settings section" class="settings nav flex-column">
+                        <li class="nav-item">
+                            <span class = "userProfilePic"></span>
+                            <span class = "centerContent"> name of the user</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="userAccount.html">My account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settings.html">Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="patriotSchedule.html">Patriot Schedule</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="map.html">My Map</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-10">
+                    <div id="map">
                         <!--creates a map object and a marker, the location has been set to GMU, and the marker to the johnson center by default-->
                         <script>
                             const map = L.map('map').setView([38.8315, -77.3117], 16);
