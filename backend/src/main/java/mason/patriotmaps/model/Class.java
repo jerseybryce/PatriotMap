@@ -13,4 +13,16 @@ public class Class {
         this.instructorName = instructorName;
         this.location = new Building(location);
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setInstructorName(String instructorName) {
+        this.instructorName = instructorName;
+    }
+
+    public void setLocation(Building location) {
+        this.location = location;
+    }
 }

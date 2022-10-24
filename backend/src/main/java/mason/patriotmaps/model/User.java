@@ -3,7 +3,14 @@ package mason.patriotmaps.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * This class represents a user of the system.
+ */
 public class User {
+    /**
+     * unique indentifier of the user.
+     */
+    private int userId;
     private String name;
     private String dateJoined;
     private Date date = new Date();
@@ -12,7 +19,8 @@ public class User {
     private boolean toggleable_settings;
     private ArrayList<Class> classes;
 
-    public User(String name, String password){
+    public User(int userId, String name, String password){
+        this.userId = userId;
         this.name = name;
         this.password = password;
         setDateJoined();
