@@ -11,7 +11,8 @@ import java.util.Date;
 @Entity
 @Table(name = "user_table")
 public class UserEntity {
-
+    //this class is used for the database, please all the variables
+    //of the user table.
     @Id
     private String userId;
     private String name;
@@ -24,5 +25,4 @@ public class UserEntity {
      * work in progress
      */
     //TODO: mmake sure you are able to access this.
-    private ArrayList<Class> classes;
 }
