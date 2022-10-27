@@ -5,6 +5,7 @@ import java.util.Date;
 
 /**
  * This class represents a user of the system.
+ * feel free to make change to it
  */
 public class User {
     /**
