@@ -81,7 +81,7 @@ class LoginForm extends React.Component {
                     'p', 
                     { className: 'small fw-bold mt-2 pt-1 mb-0' }, 
                     "Don't have an account? ", 
-                    e('a', { href: '#!', className: 'link-danger' }, 'Register')
+                    e('a', { href: 'signup.html', className: 'link' }, 'Register')
                 )
             )
         )
