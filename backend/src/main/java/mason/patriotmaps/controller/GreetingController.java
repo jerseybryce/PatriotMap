@@ -3,20 +3,18 @@ package mason.patriotmaps.controller;
 import java.util.concurrent.atomic.AtomicLong;
 
 import mason.patriotmaps.Greeting;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class GreetingController {
-
-	private static final String template = "Hello, %s!";
-	private final AtomicLong counter = new AtomicLong();
-
-	@GetMapping("/greeting")
-	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return new Greeting(counter.incrementAndGet(), String.format(template, name));
-	}
+//we will need to use response body in order to have functions return something in JSON format.
+//we will also need to have the homepage lead to the login page if the user is not logged in
 
 	/**
 	 * once the website maps to this url
@@ -25,6 +23,8 @@ public class GreetingController {
 	 */
 	@GetMapping("/login")
 	public String login(){
-		return "login";
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if(authentication == null || authentication instanceof AnonymousAuthenticationToken) return "login";
+		return "redirect:/";
 	}
 }
