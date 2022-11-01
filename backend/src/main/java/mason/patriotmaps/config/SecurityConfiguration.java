@@ -1,4 +1,4 @@
-package mason.patriotmaps;
+package mason.patriotmaps.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +24,7 @@ public class SecurityConfiguration {
                 .usernameParameter("username")
                 .permitAll()
                 .and()
-                .logout()
+                .logout().deleteCookies().logoutSuccessUrl("/")
                 .permitAll()
                 .and().rememberMe();
         return http.build();
