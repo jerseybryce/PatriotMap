@@ -1,5 +1,7 @@
 const e = React.createElement
 
+//Still have to compare confirm to email to actually implement confirmation
+
 class SignupForm extends React.Component {
     constructor(props) {
         super(props)
