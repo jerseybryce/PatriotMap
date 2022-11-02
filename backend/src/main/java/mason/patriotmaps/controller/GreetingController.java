@@ -1,8 +1,9 @@
 package mason.patriotmaps.controller;
 
-import java.util.concurrent.atomic.AtomicLong;
-
-import mason.patriotmaps.Greeting;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,22 +11,15 @@ import org.springframework.web.bind.annotation.Controller;
 
 @Controller
 public class GreetingController {
+//we will need to use response body in order to have functions return something in JSON format.
+//user will need to create account before actually using the app
 
-	private static final String template = "Hello, %s!";
-	private final AtomicLong counter = new AtomicLong();
 
-	@GetMapping("/greeting")
-	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return new Greeting(counter.incrementAndGet(), String.format(template, name));
+	@GetMapping("/")
+	public String homePage(){
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		if(authentication == null || authentication instanceof AnonymousAuthenticationToken) return "login2";
+		return "index";
 	}
 
-	/**
-	 * once the website maps to this url
-	 * the user will be prompted with a login page
-	 * @return random message
-	 */
-	@GetMapping("/login")
-	public String login(){
-		return "login";
-	}
 }
