@@ -17,7 +17,7 @@ public class GreetingController {
 	@GetMapping("/")
 	public String homePage(){
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if(authentication == null || authentication instanceof AnonymousAuthenticationToken) return "login2";
+		if(authentication == null || authentication instanceof AnonymousAuthenticationToken) return "login";
 		return "index";
 	}
 
