@@ -2,25 +2,49 @@ package mason.patriotmaps.entity;
 
 import mason.patriotmaps.model.Class;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
+
 
 @Entity
 @Table(name = "user_table")
 public class UserEntity {
     //this class is used for the database, please all the variables
     //of the user table.
+
+    //note: psql version of long is ="bigint"
     @Id
     private long userId;
+
     private String username;
+
+    //why make String if could be Date?
     private String dateJoined;
+
+    //this is not something we need to store in the database-
+    //its usage can be called live and does not need to be accessed
+    //(as opposed to the date joined, and last access timestamp)
     private Date date = new Date();
+
     private String password;
+
     private String last_access;
-    private boolean toggleable_settings;
+
+    //the reason why this is made to be an int[]
+    //rather than an ArrayList<Integer> is because, in theory,
+    //we shouldn't be appending any additional settings,
+    //but rather only changing (or reading from) a list of predefined ones
+    @Lob
+    private int[] toggleable_settings;
+
+    //I don't really understand Lob but I think this should work?
+    //also, this is effectively a foreign key LIST, where
+    //each integer represents the primary key of the class in
+    //the class entity (table name = "class_table")
+    @Lob
+    private ArrayList<Integer> class_list;
 
     public long getUserId() {
         return userId;
@@ -70,15 +94,20 @@ public class UserEntity {
         this.last_access = last_access;
     }
 
-    public boolean isToggleable_settings() {
+    public ArrayList<Integer> getClass_list()
+    {
+        return class_list;
+    }
+
+    public int[] getToggleable_settings() {
         return toggleable_settings;
     }
 
-    public void setToggleable_settings(boolean toggleable_settings) {
-        this.toggleable_settings = toggleable_settings;
+    public void addClass(int classId){
+        class_list.add(classId);
     }
-    /**
-     * work in progress
-     */
-    //TODO: mmake sure you are able to access this.
+
+    //TODO: figure out what settings are supposed to be toggleable (and add setter methods for them specifically!)
+    //most of which I figure will be display options for the map itself:
+    //class name shown (CS321), building name shown (peterson), time shown (12:00pm), etc
 }
