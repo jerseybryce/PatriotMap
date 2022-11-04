@@ -1,14 +1,11 @@
 package mason.patriotmaps.model;
-
 import java.util.ArrayList;
 
 public class Building {
     private String name;
-    //work in progress
     private ArrayList<String> aliases;
     private double latitude;
     private double longitude;
-
     public Building(String name){
         this.name = name;
     }

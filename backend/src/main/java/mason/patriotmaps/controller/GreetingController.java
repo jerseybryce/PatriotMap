@@ -21,4 +21,5 @@ public class GreetingController {
 		return "index";
 	}
 
+
 }

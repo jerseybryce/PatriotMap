@@ -12,23 +12,23 @@ public class User {
      * unique indentifier of the user.
      */
     private int userId;
-    private String name;
+    private String username;
+    private String password;
     private String dateJoined;
     private Date date = new Date();
-    private String password;
     private String last_access;
     private boolean toggleable_settings;
     private ArrayList<Class> classes;
 
     public User(int userId, String name, String password){
         this.userId = userId;
-        this.name = name;
+        this.username = name;
         this.password = password;
         setDateJoined();
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
     public String getDateJoined() {
