@@ -26,7 +26,6 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .and()
                 .formLogin()
-                .loginPage("/login")
                 .usernameParameter("username")
                 .permitAll()
                 .and()
