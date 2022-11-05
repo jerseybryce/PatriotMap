@@ -1,5 +1,6 @@
 package mason.patriotmaps.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,7 +8,7 @@ import java.util.Date;
  * This class represents a user of the system.
  * feel free to make change to it
  */
-public class User {
+public class User implements Serializable {
     /**
      * unique indentifier of the user.
      */

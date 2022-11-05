@@ -22,26 +22,35 @@ public class SecurityConfiguration {
     private UserDetailsService userDetailsService;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        http.csrf().disable()
-                .authorizeHttpRequests()
+        http.csrf()
+                .disable()
+                .authorizeRequests()
+                .antMatchers("/admin/**")
+                .hasRole("ADMIN")
+                .antMatchers("/anonymous*")
+                .anonymous()
+                .antMatchers("/login*")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .formLogin()
-                .usernameParameter("username")
-                .permitAll()
+                .loginPage("/login")
+                .defaultSuccessUrl("/homepage", true)
+                .failureUrl("/login?error=true")
                 .and()
-                .logout().deleteCookies().logoutSuccessUrl("/")
+                .logout().deleteCookies("JSESSIONID").logoutSuccessUrl("/login")
                 .permitAll()
                 .and().rememberMe();
         return http.build();
     }
 
     @Bean
-    public AuthenticationProvider authProvider(){
+    public AuthenticationProvider authProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(new BCryptPasswordEncoder());
         return provider;
     }
-
 
 }

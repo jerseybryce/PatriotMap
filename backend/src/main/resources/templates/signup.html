@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html xmlns:th="http://www.thymeleaf.org" lang="en-US">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
@@ -18,11 +18,11 @@
             </div>
 
             <div class="row align-items-center col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form>
+                <form th:action="@{/registration}" method="post">
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <label class="form-label" for="form3Example3"><font size="+2">Email Address:</font></label>
-                        <input type="email" id="form3Example3" class="form-control form-control-lg"
+                        <input type="email" id="form3Example2" class="form-control form-control-lg"
                                placeholder="Enter a valid email address" />
                     </div>
 
@@ -44,7 +44,7 @@
                     <div class="text-center text-lg-start mt-4 pt-2">
                         <button type="button" class="btn btn-success btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Sign Up</button>
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="logIn.html"
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account? <a href="login.html"
                                                                                             class="link">Log in</a></p>
                     </div>
 
