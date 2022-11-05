@@ -37,7 +37,7 @@ public class UserEntity {
     //we shouldn't be appending any additional settings,
     //but rather only changing (or reading from) a list of predefined ones
     @Lob
-    private int[] toggleable_settings;
+    private ArrayList<Integer> toggleable_settings;
 
     //I don't really understand Lob but I think this should work?
     //also, this is effectively a foreign key LIST, where
@@ -99,7 +99,7 @@ public class UserEntity {
         return class_list;
     }
 
-    public int[] getToggleable_settings() {
+    public ArrayList<Integer> getToggleable_settings() {
         return toggleable_settings;
     }
 
