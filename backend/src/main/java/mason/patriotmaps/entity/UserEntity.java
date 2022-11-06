@@ -16,6 +16,8 @@ public class UserEntity {
 
     //note: psql version of long is ="bigint"
     @Id
+    @GeneratedValue(generator ="emp_seq", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "emp_seq", sequenceName = "emp_sequence", initialValue = 0, allocationSize = 1)
     private long userId;
 
     private String username;

@@ -1,5 +1,7 @@
 package mason.patriotmaps.model;
 
+import com.sun.istack.NotNull;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,20 +15,17 @@ public class User implements Serializable {
      * unique indentifier of the user.
      */
     private int userId;
+    @NotNull
     private String username;
+
+    @NotNull
     private String password;
+    private String matchingPassword;
     private String dateJoined;
     private Date date = new Date();
     private String last_access;
     private boolean toggleable_settings;
     private ArrayList<Class> classes;
-
-    public User(int userId, String name, String password){
-        this.userId = userId;
-        this.username = name;
-        this.password = password;
-        setDateJoined();
-    }
 
     public String getUsername() {
         return username;

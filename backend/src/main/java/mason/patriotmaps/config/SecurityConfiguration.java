@@ -31,6 +31,8 @@ public class SecurityConfiguration {
                 .anonymous()
                 .antMatchers("/login*")
                 .permitAll()
+                .antMatchers("/login/registration")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
