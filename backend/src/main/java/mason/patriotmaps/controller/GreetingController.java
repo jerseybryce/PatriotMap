@@ -41,8 +41,10 @@ public class GreetingController {
 	public String test(){ return "";
 	}
 
+	//does not allow for repeated values
 	@PostMapping("/login/registration")
 	public String processRegister(@ModelAttribute UserEntity user){
+		if(repo.findByUsername(user.getUsername()) != null) return "redirect:/login/registration";
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodedPassword);
