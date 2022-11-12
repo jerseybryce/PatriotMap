@@ -7,6 +7,8 @@ import java.util.ArrayList;
 @Table(name = "class_table")
 public class ClassEntity {
     @Id
+    @GeneratedValue(generator ="emp_seq", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "emp_seq", sequenceName = "emp_sequence", initialValue = 0, allocationSize = 1)
     private long class_id;
 
     private String class_name;
@@ -26,11 +28,15 @@ public class ClassEntity {
 
     private String time;
 
+    /*public void setColor(ArrayList<Integer> color) {
+        this.color = color;
+    }*/
+
     //[0] = R value [0-255]
     //[1] = G value
     //[2] = B value
-    @Lob
-    private ArrayList<Integer> color;
+    //@Lob
+    //private ArrayList<Integer> color;
 
     //for notes and descriptions... does this need to be any longer?
     private String notes;
@@ -77,6 +83,7 @@ public class ClassEntity {
         return time;
     }
 
+    /*
     //this doesn't check if the colors are out of bounds
     //but hopefully they'll never be?
     //xd
@@ -89,6 +96,7 @@ public class ClassEntity {
     public ArrayList<Integer> getColor() {
         return color;
     }
+    */
 
     public void setNotes(String notes) {
         this.notes = notes;

@@ -19,13 +19,17 @@ public class GreetingController {
 	@Autowired
 	UserRepository repo;
 	@GetMapping("/")
-	public String noRouting(Model model){
-
+	public String noRouting(){
 		return "redirect:/homepage";
 	}
 	@GetMapping("/homepage")
 	public String homePage(){
 		return "index";
+	}
+
+	@GetMapping("/test")
+	public String test(){
+		return "test";
 	}
 
 	@RequestMapping("/login")
@@ -34,7 +38,6 @@ public class GreetingController {
 	}
 	@GetMapping("/login/registration")
 	public String showRegistrationForm(WebRequest request, Model model) {
-		model.addAttribute("enterClass", new ClassEntity());
 		model.addAttribute("user", new UserEntity());
 		return "signup";
 	}
@@ -53,5 +56,10 @@ public class GreetingController {
 	@GetMapping("/homepage/ManageSchedule")
 	public String manageSchedule(){
 		return "hello";
+	}
+
+	@GetMapping("/addClass")
+	public String addClass(){
+		return "addClass";
 	}
 }

@@ -4,6 +4,7 @@ import mason.patriotmaps.model.Class;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 
@@ -33,19 +34,13 @@ public class UserEntity {
 
     private String last_access;
 
-    //the reason why this is made to be an int[]
-    //rather than an ArrayList<Integer> is because, in theory,
-    //we shouldn't be appending any additional settings,
-    //but rather only changing (or reading from) a list of predefined ones
-    @Lob
-    private ArrayList<Integer> toggleable_settings;
 
     //I don't really understand Lob but I think this should work?
     //also, this is effectively a foreign key LIST, where
     //each integer represents the primary key of the class in
     //the class entity (table name = "class_table")
-    @Lob
-    private ArrayList<Integer> class_list;
+    @ElementCollection
+    private Collection<Integer> class_list = new ArrayList<Integer>();
 
     public long getUserId() {
         return userId;
@@ -95,14 +90,11 @@ public class UserEntity {
         this.last_access = last_access;
     }
 
-    public ArrayList<Integer> getClass_list()
+    public Collection<Integer> getClass_list()
     {
         return class_list;
     }
 
-    public ArrayList<Integer> getToggleable_settings() {
-        return toggleable_settings;
-    }
 
     public void addClass(int classId){
         class_list.add(classId);
@@ -112,7 +104,4 @@ public class UserEntity {
         class_list.remove(classId);
     }
 
-    //TODO: figure out what settings are supposed to be toggleable (and add setter methods for them specifically!)
-    //most of which I figure will be display options for the map itself:
-    //class name shown (CS321), building name shown (peterson), time shown (12:00pm), etc
 }

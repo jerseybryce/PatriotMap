@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +37,7 @@ public class MethodsController {
     //first get the primary key of the class entity and then return all the classes.
     public List<String> getClassNames(){
         String username = ((UserDetails)(SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getUsername();
-        List<Integer> classes = userRepository.findByUsername(username).getClass_list();
+        Collection<Integer> classes = userRepository.findByUsername(username).getClass_list();
         List<String> classesAsString = new ArrayList<>();
         if(classes != null)
             for(Integer ID : classes) {
