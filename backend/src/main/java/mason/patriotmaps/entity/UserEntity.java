@@ -3,7 +3,6 @@ package mason.patriotmaps.entity;
 import mason.patriotmaps.model.Class;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -107,6 +106,10 @@ public class UserEntity {
 
     public void addClass(int classId){
         class_list.add(classId);
+    }
+
+    public void removeClass(int classId){
+        class_list.remove(classId);
     }
 
     //TODO: figure out what settings are supposed to be toggleable (and add setter methods for them specifically!)

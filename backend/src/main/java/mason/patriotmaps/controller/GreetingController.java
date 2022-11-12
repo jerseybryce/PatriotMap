@@ -1,5 +1,6 @@
 package mason.patriotmaps.controller;
 
+import mason.patriotmaps.entity.ClassEntity;
 import mason.patriotmaps.entity.UserEntity;
 import mason.patriotmaps.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,9 @@ public class GreetingController {
 //user will need to create account before actually using the app
 	@Autowired
 	UserRepository repo;
-	ModelAndView mav;
 	@GetMapping("/")
-	public String noRouting(){
+	public String noRouting(Model model){
+
 		return "redirect:/homepage";
 	}
 	@GetMapping("/homepage")
@@ -33,12 +34,9 @@ public class GreetingController {
 	}
 	@GetMapping("/login/registration")
 	public String showRegistrationForm(WebRequest request, Model model) {
+		model.addAttribute("enterClass", new ClassEntity());
 		model.addAttribute("user", new UserEntity());
 		return "signup";
-	}
-
-	@GetMapping("/test")
-	public String test(){ return "";
 	}
 
 	//does not allow for repeated values
@@ -50,5 +48,10 @@ public class GreetingController {
 		user.setPassword(encodedPassword);
 		repo.save(user);
 		return "redirect:/login";
+	}
+
+	@GetMapping("/homepage/ManageSchedule")
+	public String manageSchedule(){
+		return "hello";
 	}
 }
