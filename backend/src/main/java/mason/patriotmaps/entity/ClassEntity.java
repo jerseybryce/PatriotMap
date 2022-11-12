@@ -26,6 +26,10 @@ public class ClassEntity {
 
     private String time;
 
+    public void setColor(ArrayList<Integer> color) {
+        this.color = color;
+    }
+
     //[0] = R value [0-255]
     //[1] = G value
     //[2] = B value
