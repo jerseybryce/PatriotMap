@@ -28,7 +28,6 @@ public class MethodsController {
     @Autowired
     ClassRepository classRepository;
 
-
     /**
      * Returns the users list of classes, or else it returns an empty ArrayList.
      * @return list of classes from the database
@@ -52,7 +51,7 @@ public class MethodsController {
      * method to submit a class for the user
      */
     @PostMapping("/enterClass")
-    public void addClass(@ModelAttribute ClassEntity toBeAdded){
+    public void addClass(@RequestParam ClassEntity toBeAdded){
         String username = ((UserDetails)(SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getUsername();
         classRepository.save(toBeAdded);
         userRepository.findByUsername(username).addClass(Math.toIntExact(toBeAdded.getClass_id()));
@@ -98,12 +97,13 @@ public class MethodsController {
      * @param password new Password
      */
     @PostMapping("/resetPassword")
-    public void changePassword(String password){
+    public void changePassword(@RequestParam String password){
         String username = ((UserDetails)(SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getUsername();
         UserEntity user = userRepository.findByUsername(username);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        String encodedPassword = passwordEncoder.encode(password);
         user.setPassword(encodedPassword);
+        userRepository.save(user);
     }
 
     @GetMapping("/get_building_aka")
