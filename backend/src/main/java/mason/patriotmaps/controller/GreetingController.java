@@ -83,7 +83,6 @@ public class GreetingController {
     @ResponseBody
     public List<NewsEntity> stories() {
         updateNews();
-
         List<NewsEntity> stories = newsRepo.findAll();
         return stories;
     }
