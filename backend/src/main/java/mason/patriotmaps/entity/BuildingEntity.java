@@ -1,14 +1,16 @@
 package mason.patriotmaps.entity;
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
+
 @Entity
 @Table(name = "building_table")
 public class BuildingEntity {
     @Id
     private int building_id;
 
-    @Lob
-    private ArrayList<String> akas;
+    @ElementCollection
+    private Collection<String> akas = new ArrayList<String>();
 
     private long longitude;
     private long latitude;
@@ -21,7 +23,7 @@ public class BuildingEntity {
         return building_id;
     }
 
-    public ArrayList<String> getAkas() {
+    public Collection<String> getAkas() {
         return akas;
     }
 

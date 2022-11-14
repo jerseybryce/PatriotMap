@@ -118,7 +118,7 @@ public class MethodsController {
     public List<String> getBuildingAKAS(long id){
         Optional<BuildingEntity> building = buildingRepository.findById(id);
         List<String> akas = new ArrayList<>();
-        if(building.isPresent()) akas = building.get().getAkas();
+        if(building.isPresent()) akas = (ArrayList<String>) building.get().getAkas();
         return akas;
     }
     //signout method.

@@ -35,8 +35,8 @@ public class ClassEntity {
     //[0] = R value [0-255]
     //[1] = G value
     //[2] = B value
-    //@Lob
-    //private ArrayList<Integer> color;
+    //@ElementCollection
+    //private Collection<Integer> color = new ArrayList<Integer>();
 
     //for notes and descriptions... does this need to be any longer?
     private String notes;
