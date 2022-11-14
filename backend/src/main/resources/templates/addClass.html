@@ -40,19 +40,71 @@
 
 <!-- Top of page -->
 <!-- Begin class entry -->
-<form action="methods/addClass" method="post">
+<form action="/methods/addClass" method="post">
 
-<div><h3>Class Name: </h3><input type="text" id="class_name" name="class_name" required minlength="1"></div>
-    <div><h3>Professor Name: </h3><input type="text" id="professor_name" name="prof" required minlength="1"></div>
+    <!-- Class Name -->
+    <div><h4>Class Name: </h4><input type="text" id="class_name" name="class_name" required minlength="1"></div>
+    &nbsp
+    <!-- Prof Name -->
+    <div>
+        <h4>Professor Name: </h4><input type="text" id="professor_name" name="prof" required minlength="1">
+    </div>
+    &nbsp
+    <!-- Not sure how to have a start and end time post to one field "time" -->
+    <div>
+        <h4>Time: </h4><input type="time" id="class_time" name="time" required minlength="1">
+    </div>
+    &nbsp
+    <!-- Day of the week checkboxes -->
+    <!--
+    <fieldset>
+        <legend><h4>Days of the week:</h4></legend>
+        <div>
+            <input type="checkbox" id="Monday" name="week_days">
+            <label for="Monday">Monday</label>
+        </div>
+        <div>
+            <input type="checkbox" id="Tuesday" name="week_days">
+            <label for="Tuesday">Tuesday</label>
+        </div>
+        <div>
+            <input type="checkbox" id="Wednesday" name="week_days">
+            <label for="Wednesday">Wednesday</label>
+        </div>
+        <div>
+            <input type="checkbox" id="Thursday" name="week_days">
+            <label for="Thursday">Thursday</label>
+        </div>
+        <div>
+            <input type="checkbox" id="Friday" name="week_days">
+            <label for="Friday">Friday</label>
+        </div>
+    </fieldset>
+    -->
+    &nbsp
+    <!-- Building Dropdown, I can add the rest of the classes-->
+    <div><h4>Building: </h4>
+        <select id="building" name="building_id" required minlength="1">
+            <option value="">Select Building</option>
+            <option value="0">PTRSN - Peterson Hall</option>
+            <option value="1">E - East Building</option>
+            <option value="2">FILR - Filler Building</option>
+        </select>
+    </div>
+    &nbsp
+    <!-- Notes, this should be last field before submit button -->
+    <div>
+        <h4>Class Notes: </h4><textarea id="class_notes" name="notes" rows="4" cols="50"></textarea>
+    </div>
+    &nbsp
+    <!-- Submit Button -->
+    <div><button type="submit" class="btn btn-success btn-lg" onclick="add()" id="btn">Add Class</button></div>
 
-
-<!-- Submit Button -->
-    <div><button type="submit" class="btn btn-success btn-lg" onclick="add()">Add Class</button></div>
+</form>
 <script>
 function add() {
   alert(document.getElementById("class_name").value);
 }
 </script>
-</form>
 </body>
 </html>
