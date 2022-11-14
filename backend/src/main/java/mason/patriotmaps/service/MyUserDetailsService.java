@@ -1,7 +1,6 @@
 package mason.patriotmaps.service;
 
 import mason.patriotmaps.entity.UserEntity;
-import mason.patriotmaps.model.User;
 import mason.patriotmaps.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

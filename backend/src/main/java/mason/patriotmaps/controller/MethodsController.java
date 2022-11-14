@@ -1,5 +1,4 @@
 package mason.patriotmaps.controller;
-
 import mason.patriotmaps.entity.BuildingEntity;
 import mason.patriotmaps.entity.ClassEntity;
 import mason.patriotmaps.entity.UserEntity;
@@ -13,8 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,12 +33,12 @@ public class MethodsController {
      * Returns the users list of classes, or else it returns an empty ArrayList.
      * @return list of classes from the database
      */
-/*    @GetMapping("/getClasses")
+    @GetMapping("/getClasses")
     @ResponseBody
     //first get the primary key of the class entity and then return all the classes.
     public List<String> getClassNames(){
         String username = ((UserDetails)(SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getUsername();
-        List<Integer> classes = userRepository.findByUsername(username).getClass_list();
+        Collection<Integer> classes = userRepository.findByUsername(username).getClass_list();
         List<String> classesAsString = new ArrayList<>();
         if(classes != null)
             for(Integer ID : classes) {
@@ -49,7 +48,7 @@ public class MethodsController {
         if(classesAsString.isEmpty()) classesAsString.add("no classes found!");
         return classesAsString;
     }
-*/
+
     /**
      * method to submit a class for the user
      *
@@ -122,7 +121,6 @@ public class MethodsController {
         if(building.isPresent()) akas = building.get().getAkas();
         return akas;
     }
-
     //signout method.
     //to delete class, they are gonna use the name of the class.
     //return the days of the week

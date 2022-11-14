@@ -1,7 +1,6 @@
 package mason.patriotmaps.service;
 
 import mason.patriotmaps.entity.UserEntity;
-import mason.patriotmaps.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

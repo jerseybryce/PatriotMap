@@ -1,7 +1,5 @@
 package mason.patriotmaps.entity;
 
-import mason.patriotmaps.model.Class;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
