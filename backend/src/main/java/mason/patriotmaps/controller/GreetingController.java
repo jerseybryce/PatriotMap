@@ -27,10 +27,6 @@ public class GreetingController {
 		return "index";
 	}
 
-	@GetMapping("/test")
-	public String test(){
-		return "test";
-	}
 
 	@RequestMapping("/login")
 	public String login(){
