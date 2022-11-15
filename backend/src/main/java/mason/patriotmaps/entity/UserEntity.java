@@ -20,17 +20,8 @@ public class UserEntity {
 
     private String username;
 
-    //why make String if could be Date?
-    private String dateJoined;
-
-    //this is not something we need to store in the database-
-    //its usage can be called live and does not need to be accessed
-    //(as opposed to the date joined, and last access timestamp)
-    private Date date = new Date();
-
     private String password;
 
-    private String last_access;
 
 
     //I don't really understand Lob but I think this should work?
@@ -56,21 +47,6 @@ public class UserEntity {
         this.username = username;
     }
 
-    public String getDateJoined() {
-        return dateJoined;
-    }
-
-    public void setDateJoined(String dateJoined) {
-        this.dateJoined = dateJoined;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public String getPassword() {
         return password;
@@ -80,13 +56,6 @@ public class UserEntity {
         this.password = password;
     }
 
-    public String getLast_access() {
-        return last_access;
-    }
-
-    public void setLast_access(String last_access) {
-        this.last_access = last_access;
-    }
 
     public Collection<Integer> getClass_list()
     {
