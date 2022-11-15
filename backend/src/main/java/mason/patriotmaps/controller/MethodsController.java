@@ -43,7 +43,16 @@ public class MethodsController {
         if(classes != null)
             for(Integer ID : classes) {
                 Optional<ClassEntity> currentClass = classRepository.findById(new Long(ID));
-                currentClass.ifPresent(classEntity -> classesAsString.add(classEntity.getClass_name()));
+                if(currentClass.isPresent()){
+                    ClassEntity classEntity = currentClass.get();
+                    classesAsString.add(Long.toString(classEntity.getClass_id()));
+                    classesAsString.add(classEntity.getClass_name());
+                    classesAsString.add(Integer.toString(classEntity.getWeek_days()));
+                    classesAsString.add(Integer.toString(classEntity.getBuilding_id()));
+                    classesAsString.add(classEntity.getTime());
+                    classesAsString.add(classEntity.getNotes());
+                    classesAsString.add(classEntity.getProf());
+                }
             }
         if(classesAsString.isEmpty()) classesAsString.add("no classes found!");
         return classesAsString;
