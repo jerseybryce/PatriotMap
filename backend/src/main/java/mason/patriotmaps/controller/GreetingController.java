@@ -68,12 +68,22 @@ public class GreetingController {
 
 	@GetMapping("/homepage/ManageSchedule")
 	public String manageSchedule(){
-		return "hello";
+		return "patriotSchedule";
 	}
 
 	@GetMapping("/addClass")
 	public String addClass(){
 		return "addClass";
+	}
+
+	@GetMapping("/editClass")
+	public String editClass(){
+		return "editClass";
+	}
+
+	@GetMapping("/deleteClass")
+	public String deleteClass(){
+		return "deleteClass";
 	}
 
     @Autowired
