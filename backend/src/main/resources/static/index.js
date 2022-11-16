@@ -52,7 +52,7 @@ fetch('http://localhost:8080/methods/getClasses')
         div.innerHTML = str
         item.appendChild(div)
         sidebar.appendChild(item)
-        num += 7
+        num += 8
     }
   })
 
