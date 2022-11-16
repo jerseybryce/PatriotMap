@@ -1,8 +1,11 @@
 //Print date
 const day = document.querySelector('.day')
 const d = new Date()
-let date = d.getDay()
+var date = d.getDay()
 var dayName = ''
+var dd = String(d.getDate()).padStart(2,'0')
+var mm = String(d.getMonth() + 1).padStart(2, '0')
+
 
 switch(date){
     case 0:
@@ -31,7 +34,7 @@ switch(date){
 }
 
 const clock = document.createElement('div')
-clock.innerHTML = dayName
+clock.innerHTML = dayName + " " + mm + "/" + dd
 day.appendChild(clock)
 
 

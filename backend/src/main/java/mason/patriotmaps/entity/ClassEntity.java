@@ -1,7 +1,6 @@
 package mason.patriotmaps.entity;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 
 @Entity
 @Table(name = "class_table")
@@ -28,15 +27,12 @@ public class ClassEntity {
 
     private String time;
 
-    /*public void setColor(ArrayList<Integer> color) {
+    public void setColor(String color) {
         this.color = color;
-    }*/
+    }
 
-    //[0] = R value [0-255]
-    //[1] = G value
-    //[2] = B value
-    //@ElementCollection
-    //private Collection<Integer> color = new ArrayList<Integer>();
+    //Hex Code
+    private String color;
 
     //for notes and descriptions... does this need to be any longer?
     private String notes;
@@ -83,20 +79,9 @@ public class ClassEntity {
         return time;
     }
 
-    /*
-    //this doesn't check if the colors are out of bounds
-    //but hopefully they'll never be?
-    //xd
-    public void setColor(int r, int g, int b) {
-        this.color.set(0, r);
-        this.color.set(1, g);
-        this.color.set(2, b);
-    }
-
-    public ArrayList<Integer> getColor() {
+    public String getColor() {
         return color;
     }
-    */
 
     public void setNotes(String notes) {
         this.notes = notes;

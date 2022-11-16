@@ -51,6 +51,7 @@ public class MethodsController {
                     classesAsString.add(Integer.toString(classEntity.getBuilding_id()));
                     classesAsString.add(classEntity.getTime());
                     classesAsString.add(classEntity.getNotes());
+                    classesAsString.add(classEntity.getColor());
                     classesAsString.add(classEntity.getProf());
                 }
             }
