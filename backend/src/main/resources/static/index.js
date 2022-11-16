@@ -42,6 +42,11 @@ day.appendChild(clock)
 var sidebar = document.querySelector('.classes')
 var num = 1
 
+//This is just to read data, can be deleted later
+fetch('http://localhost:8080/methods/getClasses')
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+
 fetch('http://localhost:8080/methods/getClasses')
   .then((response) => response.json())
   .then((data) => {

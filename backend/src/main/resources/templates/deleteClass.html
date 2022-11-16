@@ -28,5 +28,13 @@
             <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg></a></h4>
     </div>
 </div>
+
+<!-- Deletion Form -->
+<form action="/methods/deleteClass">
+    <select class="deleteDropdown" id="class" required minlength="1"></select>
+    <script src="deleteClass.js"></script>
+    <div><button type="submit" class="btn btn-danger btn-lg" id="btn" onclick="delClass()">Delete Class</button></div>
+</form>
+
 </body>
 </html>
