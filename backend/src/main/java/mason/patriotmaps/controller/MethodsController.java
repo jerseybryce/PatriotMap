@@ -79,12 +79,13 @@ public class MethodsController {
      * Key of the class table.
      * @param id the primary key of the classEntity
      */
-    @DeleteMapping("/deleteClass")
-    public void removeClass(int id){
+    @PostMapping("/deleteClass")
+    public String removeClass(@RequestParam int id){
         String username = ((UserDetails)(SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getUsername();
         ClassEntity classToBeRemoved = classRepository.findById(new Long(id)).get();
         userRepository.findByUsername(username).removeClass(id);
         classRepository.delete(classToBeRemoved);
+        return "redirect:/homepage";
     }
 
     /**

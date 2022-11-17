@@ -20,7 +20,3 @@ fetch('http://localhost:8080/methods/getClasses')
         className += 8
     }
   })
-
- function delClass(){
-         fetch('http://localhost:8080/methods/deleteClass', {method: 'DELETE'})
- }

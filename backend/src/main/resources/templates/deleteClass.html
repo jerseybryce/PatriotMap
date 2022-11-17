@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -30,10 +31,10 @@
 </div>
 
 <!-- Deletion Form -->
-<form action="/methods/deleteClass">
-    <select class="deleteDropdown" id="class" required minlength="1"></select>
+<form action="/methods/deleteClass" method="post">
+    <select class="deleteDropdown" id="id" name="id" required minlength="1"></select>
     <script src="deleteClass.js"></script>
-    <div><button type="submit" class="btn btn-danger btn-lg" id="btn" onclick="delClass()">Delete Class</button></div>
+    <div><button type="submit" class="btn btn-danger btn-lg" id="btn" name="id">Delete Class</button></div>
 </form>
 
 </body>
