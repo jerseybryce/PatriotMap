@@ -74,6 +74,19 @@ public class MethodsController {
         return "redirect:/homepage";
     }
 
+    @PostMapping("/editClass")
+    public String editClass(@ModelAttribute ClassEntity toBeChanged){
+        ClassEntity old = classRepository.findById(toBeChanged.getClass_id()).get();
+        old.setClass_name(toBeChanged.getClass_name());
+        old.setBuilding_id(toBeChanged.getBuilding_id());
+        old.setColor(toBeChanged.getColor());
+        old.setNotes(toBeChanged.getNotes());
+        old.setTime(toBeChanged.getTime());
+        old.setProf(toBeChanged.getProf());
+        old.setWeek_days(toBeChanged.getWeek_days());
+        classRepository.save(old);
+        return "redirect:/homepage";
+    }
     /**
      * To use this method you will have to pass the primary
      * Key of the class table.
