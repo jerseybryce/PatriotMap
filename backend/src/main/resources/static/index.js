@@ -54,7 +54,7 @@ fetch('http://localhost:8080/methods/getClasses')
         const item = document.createElement('li')
         const div = document.createElement('div')
         const str = '<h3>' + data[num] + '</h3>'
-        div.color = data[num + 5]
+        div.style.color = data[num + 5]
         div.innerHTML = str
         item.appendChild(div)
         sidebar.appendChild(item)
