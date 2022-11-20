@@ -18,16 +18,16 @@
         <form th:action="@{/login}" method="post">
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <label class="form-label" for="username"><font size="+2">Email Address:</font></label>
+            <label class="form-label" for="username"><font size="+2">Username:</font></label>
             <input  id="username" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" name = "username"/>
+              placeholder="Enter a registered username" name = "username" minlength="1"/>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
 	    <label class="form-label" for="password"><font size="+2">Password:</font></label>
             <input type="password" id="password" name="password" class="form-control form-control-lg"
-              placeholder="Enter password" />
+              placeholder="Enter password" minlength="1"/>
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
@@ -35,9 +35,10 @@
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <input type="submit" value="Log in"  class="btn btn-success btn-lg"/>
+            <button type="submit" value="Submit" class="btn btn-success btn-lg"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Log In</button>
             <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/login/registration"
-                class="link-danger">Register</a></p>
+                class="link-warning">Register</a></p>
           </div>
         </form>
       </div>
