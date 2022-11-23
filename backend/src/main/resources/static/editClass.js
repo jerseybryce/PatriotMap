@@ -3,11 +3,28 @@ var form = document.querySelector('.editForm')
 var dropdown = document.querySelector('.classSelector')
 var classID = 0 //value used to track class ids
 var className = 1 //value to track class name
+const building = document.querySelector('.building');
+var buildingName = 0
+var buildingAKA = 1
+var buildingID = 2
 
-//This is just to read data, can be deleted later
-fetch('http://localhost:8080/methods/getClasses')
+//Get building names
+fetch('http://localhost:8080/methods/getBuildingNames')
   .then((response) => response.json())
-  .then((data) => console.log(data))
+  .then((data) => {
+    while(buildingAKA < data.length){
+        if(data[buildingAKA] != null){
+            const option = document.createElement('option')
+            var str = data[buildingAKA] + ' - ' + data[buildingName]
+            option.value = data[buildingID]
+            option.innerHTML = str
+            building.appendChild(option)
+        }
+        buildingName += 3
+        buildingAKA += 3
+        buildingID += 3
+    }
+  })
 
 fetch('http://localhost:8080/methods/getClasses')
   .then((response) => response.json())

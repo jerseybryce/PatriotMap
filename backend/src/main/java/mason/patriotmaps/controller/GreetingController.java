@@ -66,7 +66,7 @@ public class GreetingController {
 		return "redirect:/login";
 	}
 
-	@GetMapping("/homepage/ManageSchedule")
+	@GetMapping("/manageSchedule")
 	public String manageSchedule(){
 		return "patriotSchedule";
 	}
@@ -96,6 +96,9 @@ public class GreetingController {
         List<NewsEntity> stories = newsRepo.findAll();
         return stories;
     }
+
+	@GetMapping("/userAccount")
+	public String userAccount(){ return "userAccount"; }
 
     public void updateNews() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

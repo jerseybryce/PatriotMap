@@ -139,9 +139,25 @@ public class MethodsController {
 
     @GetMapping("/get_building_aka")
     @ResponseBody
-    public String getBuildingAKAS(long id){
+    public String getBuildingAKA(long id){
         Optional<BuildingEntity> building = buildingRepository.findById(id);
         return building.get().getAka();
+    }
+
+    @GetMapping("/getBuildingNames")
+    @ResponseBody
+    public List<String> getBuildingNames(){
+        List<String> buildings = new ArrayList<String>();
+        for(int i = 0; i <= 70; i++){
+            Optional<BuildingEntity> curBuilding = buildingRepository.findById(new Long(i));
+            if(curBuilding.isPresent()){
+                buildings.add(curBuilding.get().getName());
+                buildings.add(curBuilding.get().getAka());
+                buildings.add(Long.toString(curBuilding.get().getBuilding_id()));
+            }
+        }
+
+        return buildings;
     }
     //signout method.
     //to delete class, they are gonna use the name of the class.

@@ -5,11 +5,11 @@ import javax.persistence.*;
 @Table(name = "building_table")
 public class BuildingEntity {
     @Id
-    private int building_id;
+    private long building_id;
 
     private String building_name;
 
-    private String building_aka;
+    private String building_akas;
 
     private long longitude;
     private long latitude;
@@ -18,7 +18,7 @@ public class BuildingEntity {
         this.building_id = building_id;
     }
 
-    public int getBuilding_id() {
+    public long getBuilding_id() {
         return building_id;
     }
 
@@ -31,11 +31,11 @@ public class BuildingEntity {
     }
 
     public String getAka() {
-        return building_aka;
+        return building_akas;
     }
 
     public void setAka(String building_aka){
-        this.building_aka = building_aka;
+        this.building_akas = building_aka;
     }
 
     public void setLongitude(long longitude) {
