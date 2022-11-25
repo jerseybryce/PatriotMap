@@ -49,9 +49,19 @@
         <div class="col-10">
             <!-- Deletion Form -->
             <form action="/methods/deleteClass" method="post">
-                <select class="deleteDropdown" id="id" name="id" required minlength="1"></select>
-                <script src="deleteClass.js"></script>
+                <div class="row text-center">
+                    <div>
+                        <h4>Choose the class to be deleted: </h4>
+                    <select class="deleteDropdown" id="id" name="id" required minlength="1"></select>
+                    </div>
+                </div>
+                    <script src="deleteClass.js"></script>
+
+                &nbsp
+
+                <div class="row text-center">
                 <div><button type="submit" class="btn btn-danger btn-lg" id="btn" name="id">Delete Class</button></div>
+                </div>
             </form>
 
         </div>

@@ -47,23 +47,38 @@
         </div>
         <div class="col-10">
             <form class='editForm' action="/methods/editClass" method="post">
+                <div class="row text-center">
+                    <div>
+
                 <select class="classSelector" id="id" name="id" required minlength="1"></select>
                 <input type="text" id="class_id" name="class_id" readonly>
+                    </div> </div>
+
+
                 <!-- Class Name -->
+                <div class="row text-center">
                 <div><h4>Class Name: </h4><input type="text" id="class_name" name="class_name" required minlength="1"></div>
-                &nbsp
+                </div>
+
+
                 <!-- Prof Name -->
+                <div class="row text-center">
                 <div>
                     <h4>Professor Name: </h4><input type="text" id="professor_name" name="prof" required minlength="1">
                 </div>
-                &nbsp
+                </div>
+
+
                 <!-- Not sure how to have a start and end time post to one field "time" -->
+                <div class="row text-center">
                 <div>
                     <h4>Time: </h4><input type="time" id="class_time" name="time" required minlength="1">
                 </div>
-                &nbsp
+                </div>
+
                 <!-- Day of the week checkboxes -->
-                <!--
+                <div class="row text-center">
+                    <div>
                 <fieldset>
                     <legend><h4>Days of the week:</h4></legend>
                     <div>
@@ -87,28 +102,38 @@
                         <label for="Friday">Friday</label>
                     </div>
                 </fieldset>
-                -->
-                &nbsp
+                    </div> </div>
+
                 <!-- Building Dropdown, I can add the rest of the classes-->
+                <div class="row text-center">
                 <div><h4>Building: </h4>
                     <select class='building' id="building" name="building_id" required minlength="1">
                         <option value="">Select Building</option>
                     </select>
-
                 </div>
+                </div>
+
+                <!-- color input -->
+                <div class="row text-center">
                 <div><h4>Color: </h4>
                     <input id="class_color" name="color" type="color" value="#ffcc33">
                 </div>
+                </div>
 
-                &nbsp
                 <!-- Notes, this should be last field before submit button -->
+                <div class="row text-center">
                 <div>
                     <h4>Class Notes: </h4><textarea id="class_notes" name="notes" rows="4" cols="50"></textarea>
                 </div>
+                </div>
+
                 &nbsp
+
                 <!-- Submit Button -->
+                <div class="row text-center">
                 <div><button type="submit" class="btn btn-warning btn-lg" id="btn">Edit Class</button></div>
-                <script src="editClass.js"></script>
+                </div>
+                    <script src="editClass.js"></script>
             </form>
         </div>
     </div>

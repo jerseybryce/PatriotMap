@@ -49,7 +49,6 @@ fetch('http://localhost:8080/methods/getClasses')
     while(data[finalIndex] != finalID && finalIndex < data.length){finalIndex += 8}
     document.getElementById('class_id').value = finalID
     document.getElementById('class_name').value = data[finalIndex + 1]
-    //Add one here for weekdays
     document.getElementById('building').value = data[finalIndex + 3]
     document.getElementById('class_time').value = data[finalIndex + 4]
     document.getElementById('class_notes').value = data[finalIndex + 5]

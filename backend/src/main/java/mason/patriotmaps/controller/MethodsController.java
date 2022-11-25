@@ -47,7 +47,7 @@ public class MethodsController {
                     ClassEntity classEntity = currentClass.get();
                     classesAsString.add(Long.toString(classEntity.getClass_id()));
                     classesAsString.add(classEntity.getClass_name());
-                    classesAsString.add(Integer.toString(classEntity.getWeek_days()));
+                    classesAsString.add(classEntity.getWeek_days());
                     classesAsString.add(Integer.toString(classEntity.getBuilding_id()));
                     classesAsString.add(classEntity.getTime());
                     classesAsString.add(classEntity.getNotes());

@@ -19,7 +19,7 @@ public class ClassEntity {
     //(use binary representation) where
     //M=16, T=8, W=4, t=2, F=1
     //though i suppose we could have used smaller datatype
-    private int week_days;
+    private String week_days;
 
     //note: i am not sure if we NEED the foreign key jpa annotation?
     //but that's effectively what this is
@@ -55,11 +55,11 @@ public class ClassEntity {
         return class_name;
     }
 
-    public void setWeek_days(int week_days) {
+    public void setWeek_days(String week_days) {
         this.week_days = week_days;
     }
 
-    public int getWeek_days() {
+    public String getWeek_days() {
         return week_days;
     }
 
