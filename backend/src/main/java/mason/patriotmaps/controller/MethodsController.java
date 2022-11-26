@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/methods")
@@ -36,27 +37,15 @@ public class MethodsController {
     @GetMapping("/getClasses")
     @ResponseBody
     //first get the primary key of the class entity and then return all the classes.
-    public List<String> getClassNames(){
+    public List<ClassEntity> getClassNames(){
         String username = ((UserDetails)(SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getUsername();
         Collection<Integer> classes = userRepository.findByUsername(username).getClass_list();
-        List<String> classesAsString = new ArrayList<>();
-        if(classes != null)
-            for(Integer ID : classes) {
-                Optional<ClassEntity> currentClass = classRepository.findById(new Long(ID));
-                if(currentClass.isPresent()){
-                    ClassEntity classEntity = currentClass.get();
-                    classesAsString.add(Long.toString(classEntity.getClass_id()));
-                    classesAsString.add(classEntity.getClass_name());
-                    classesAsString.add(classEntity.getWeek_days());
-                    classesAsString.add(Integer.toString(classEntity.getBuilding_id()));
-                    classesAsString.add(classEntity.getTime());
-                    classesAsString.add(classEntity.getNotes());
-                    classesAsString.add(classEntity.getColor());
-                    classesAsString.add(classEntity.getProf());
-                }
-            }
-        if(classesAsString.isEmpty()) classesAsString.add("no classes found!");
-        return classesAsString;
+        
+        return classes.stream()
+            .map(id -> classRepository.findById(new Long(id)))
+            .filter(opt -> opt.isPresent())
+            .map(opt -> opt.get())
+            .collect(Collectors.toList());
     }
 
     /**

@@ -59,6 +59,10 @@ fetch('http://localhost:8080/methods/getClasses')
         item.appendChild(div)
         sidebar.appendChild(item)
         num += 8
+        div.onclick = showBuilding;
     }
   })
 
+function showBuilding (e) {
+    console.log(e.target) 
+}

@@ -51,12 +51,14 @@ fetch('http://localhost:8080/methods/getClasses')
   .then((response) => response.json())
   .then((data) => {
     while (num < data.length){
+        console.log(data)
         const item = document.createElement('li')
         const div = document.createElement('div')
         const str = '<h3>' + data[num] + '</h3>'
         div.style.color = data[num + 5]
         div.innerHTML = str
         item.appendChild(div)
+        item.addEventListener('click', () => {})
         sidebar.appendChild(item)
         num += 8
     }
