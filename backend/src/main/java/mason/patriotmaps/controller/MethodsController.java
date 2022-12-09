@@ -37,14 +37,13 @@ public class MethodsController {
     @GetMapping("/getClasses")
     @ResponseBody
     //first get the primary key of the class entity and then return all the classes.
-    public List<ClassEntity> getClassNames(){
+    public List<Collection> getClassNames(){
         String username = ((UserDetails)(SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getUsername();
-        Collection<Integer> classes = userRepository.findByUsername(username).getClass_list();
+       Collection<Integer> classes = userRepository.findByUsername(username).getClass_list();
         
         return classes.stream()
-            .map(id -> classRepository.findById(new Long(id)))
-            .filter(opt -> opt.isPresent())
-            .map(opt -> opt.get())
+            .map(id -> classRepository.withLocation(new Long(id)))
+            .filter(list -> list.size() > 0)
             .collect(Collectors.toList());
     }
 
