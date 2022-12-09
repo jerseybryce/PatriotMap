@@ -1,8 +1,6 @@
 //list classes
 var form = document.querySelector('.editForm')
 var dropdown = document.querySelector('.classSelector')
-var classID = 0 //value used to track class ids
-var className = 1 //value to track class name
 const building = document.querySelector('.building');
 var buildingName = 0
 var buildingAKA = 1
@@ -33,27 +31,29 @@ fetch('http://localhost:8080/methods/getClasses')
   blank.value = ''
   blank.innerHTML = ''
   dropdown.appendChild(blank)
-    while (className < data.length){
+    for (const cls of data) {
         const option = document.createElement('option')
-        option.value = data[classID]
-        option.innerHTML = data[className]
+        option.value = cls[0][2]
+        option.innerHTML = cls[0][3]
         dropdown.appendChild(option)
-        classID += 8
-        className += 8
     }
 
     dropdown.addEventListener('change', (event) => {
-    var finalID = document.querySelector('.classSelector').value
-    console.log
-    var finalIndex = 0
-    while(data[finalIndex] != finalID && finalIndex < data.length){finalIndex += 8}
-    document.getElementById('class_id').value = finalID
-    document.getElementById('class_name').value = data[finalIndex + 1]
-    document.getElementById('building').value = data[finalIndex + 3]
-    document.getElementById('class_time').value = data[finalIndex + 4]
-    document.getElementById('class_notes').value = data[finalIndex + 5]
-    document.getElementById('class_color').value = data[finalIndex + 6]
-    document.getElementById('professor_name').value = data[finalIndex + 7]
+    var finalCLS = null
+
+    for (const cls of data){
+        if (cls[0][2] == document.querySelector('.classSelector').value){
+            finalCLS = cls[0]
+        }
+    }
+
+        document.getElementById('class_id').value = finalCLS[2]
+        document.getElementById('class_name').value = finalCLS[3]
+        document.getElementById('building').value = finalCLS[9]
+        document.getElementById('class_time').value = finalCLS[7]
+        document.getElementById('class_notes').value = finalCLS[4]
+        document.getElementById('class_color').value = finalCLS[6]
+        document.getElementById('professor_name').value = finalCLS[5]
     })
   })
 

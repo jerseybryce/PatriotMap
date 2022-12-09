@@ -6,6 +6,7 @@ var buildingID = 2
 fetch('http://localhost:8080/methods/getBuildingNames')
   .then((response) => response.json())
   .then((data) => {
+    console.log(data)
     while(buildingAKA < data.length){
         if(data[buildingAKA] != null){
             const option = document.createElement('option')

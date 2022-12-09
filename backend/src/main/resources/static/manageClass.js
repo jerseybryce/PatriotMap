@@ -48,21 +48,15 @@ fetch('http://localhost:8080/methods/getClasses')
   .then((data) => console.log(data))
 
 fetch('http://localhost:8080/methods/getClasses')
-  .then((response) => response.json())
-  .then((data) => {
-    while (num < data.length){
-        const item = document.createElement('li')
-        const div = document.createElement('div')
-        const str = '<h3>' + data[num] + '</h3>'
-        div.style.color = data[num + 5]
-        div.innerHTML = str
-        item.appendChild(div)
-        sidebar.appendChild(item)
-        num += 8
-        div.onclick = showBuilding;
-    }
-  })
-
-function showBuilding (e) {
-    console.log(e.target) 
-}
+    .then((response) => response.json())
+    .then((data) => {
+        for (const cls of data) {
+            const item = document.createElement('li')
+            const div = document.createElement('div')
+            const str = '<h3>' + cls[0][3] + '</h3>'
+            div.style.color = cls[0][6]
+            div.innerHTML = str
+            item.appendChild(div)
+            sidebar.appendChild(item)
+        }
+    })

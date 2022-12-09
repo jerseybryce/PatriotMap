@@ -17,32 +17,32 @@ var mm = String(d.getMonth() + 1).padStart(2, '0')
 
 switch(date){
     case 0:
-        dayName = '<h2>Sunday</h2>'
+        dayName = 'Sunday'
         break
     case 1:
-        dayName = '<h2>Monday</h2>'
+        dayName = 'Monday'
         break
     case 2:
-        dayName = '<h2>Tuesday</h2>'
+        dayName = 'Tuesday'
         break
     case 3:
-        dayName = '<h2>Wednesday</h2>'
+        dayName = 'Wednesday'
         break
     case 4:
-        dayName = '<h2>Thursday</h2>'
+        dayName = 'Thursday'
         break
     case 5:
-        dayName = '<h2>Friday</h2>'
+        dayName = 'Friday'
         break
     case 6:
-        dayName = '<h2>Saturday</h2>'
+        dayName = 'Saturday'
         break
     default:
         break
 }
 
 const clock = document.createElement('div')
-clock.innerHTML = dayName + " " + mm + "/" + dd
+clock.innerHTML = "<h2>" + dayName + "</h2> " + mm + "/" + dd
 day.appendChild(clock)
 
 
@@ -65,6 +65,9 @@ fetch('http://localhost:8080/methods/getClasses')
             div.style.color = cls[0][6]
             div.innerHTML = str
             item.appendChild(div)
+            if(cls[0][8] != null && cls[0][8].includes(dayName)){
+                L.marker([cls[0][0], cls[0][1]]).addTo(map);
+            }
             item.addEventListener('click', () => {
                 L.marker([cls[0][0], cls[0][1]]).addTo(map);
             })
