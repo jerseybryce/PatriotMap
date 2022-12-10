@@ -4,7 +4,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-L.marker([38.8301, -77.3078]).addTo(map);
 
 //Print date
 const dateLabel = document.querySelector('.day')
