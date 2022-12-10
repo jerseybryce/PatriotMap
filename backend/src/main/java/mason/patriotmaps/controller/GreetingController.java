@@ -118,10 +118,13 @@ public class GreetingController {
                             String publ = e.selectFirst(".news-list-date").text(); 
                             String title = e.selectFirst(".news-list-title").text();
                             String summary = e.selectFirst(".news-list-summary").text();
+                            // image = e.selectFirst(".news-list-image")
                             return new NewsEntity(publ, title, summary);
                         })
                         .collect(Collectors.toList());
+                    newsRepo.clear();
                     newsRepo.saveAll(stories);
+                    // newsRepo.updateDay(sdf.format(current));
                 } catch (IOException e) {
                     return;
                 }
