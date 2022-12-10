@@ -118,8 +118,8 @@ public class GreetingController {
                             String publ = e.selectFirst(".news-list-date").text(); 
                             String title = e.selectFirst(".news-list-title").text();
                             String summary = e.selectFirst(".news-list-summary").text();
-                            // image = e.selectFirst(".news-list-image")
-                            return new NewsEntity(publ, title, summary);
+                            String link = "https://www.gmu.edu" + e.selectFirst("a").attr("href");
+                            return new NewsEntity(publ, title, summary, link);
                         })
                         .collect(Collectors.toList());
                     newsRepo.clear();
