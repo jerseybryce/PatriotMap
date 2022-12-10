@@ -11,12 +11,10 @@ fetch('http://localhost:8080/methods/getClasses')
 fetch('http://localhost:8080/methods/getClasses')
   .then((response) => response.json())
   .then((data) => {
-    while (className < data.length){
+    for (const cls of data) {
         const option = document.createElement('option')
-        option.value = data[classID]
-        option.innerHTML = data[className]
+        option.value = cls[0][2]
+        option.innerHTML = cls[0][3]
         dropdown.appendChild(option)
-        classID += 8
-        className += 8
     }
   })
