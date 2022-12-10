@@ -51,12 +51,50 @@ fetch('http://localhost:8080/methods/getClasses')
     .then((response) => response.json())
     .then((data) => {
         for (const cls of data) {
-            const item = document.createElement('li')
             const div = document.createElement('div')
-            const str = '<h3>' + cls[0][3] + '</h3>'
+            div.classList.add('border-bottom')
+            div.classList.add('border-dark')
+            div.classList.add('border-1')
+
+            var days = ''
+
+            if (cls[0][8] != null){
+                days += ' - '
+                var d_arr = cls[0][8].split(',')
+                console.log(d_arr.length)
+                for(let i = 0; i < d_arr.length; i++){
+                    if (d_arr[i] == 'Thursday'){
+                        days += 'R/'
+                    }
+                    else{
+                        days += d_arr[i].charAt(0) + '/'
+                    }
+                }
+
+                days = days.slice(0,-1)
+            }
+
+            var am_pm = 'AM'
+            var class_time = cls[0][7].slice(0,2);
+            var tmp = parseInt(class_time)
+
+            if(tmp > 12){
+                tmp = tmp % 12
+                am_pm = 'PM'
+            }
+
+            var location = ''
+            if(cls[0][10] != null){
+                location += ' @ ' + cls[0][10]
+            }
+
+            class_time = tmp.toString() + cls[0][7].slice(2, cls[0][7].length) + ' ' + am_pm
+            const str = cls[0][3] + days
+
             div.style.color = cls[0][6]
-            div.innerHTML = str
-            item.appendChild(div)
-            sidebar.appendChild(item)
+            div.innerHTML = str + '<br>' + class_time + location
+            div.style.fontSize = "20px"
+
+            sidebar.appendChild(div)
         }
     })
