@@ -83,14 +83,14 @@ class PatriotmapsApplicationTests {
 		assertThat("CS321").isEqualTo(classEntity.getClass_name());
 	}
 
-	/*
+
 	@Test
 	public void class_weekdays(){
 		ClassEntity classEntity = new ClassEntity();
-		classEntity.setWeek_days(20);
-		assertThat(20).isEqualTo(classEntity.getWeek_days());
+		classEntity.setWeek_days("Monday");
+		assertThat("Monday").isEqualTo(classEntity.getWeek_days());
 	}
-	*/
+
 
 	@Test
 	public void class_buildingid(){

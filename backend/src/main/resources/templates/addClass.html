@@ -40,9 +40,9 @@
             </div>
             &nbsp
             <div class="nav flex-column text-center">
-                <ul class="classes" style="list-style: none">
+                <div class="classes">
 
-                </ul>
+                </div>
             </div>
             <script src="manageClass.js"></script>
         </div>
@@ -70,7 +70,7 @@
 
                 <!-- Day of the week checkboxes -->
                 <div class="row text-center">
-                <fieldset id="week">
+                <fieldset id="week" >
                     <legend><h4>Days of the week:</h4></legend>
                     <div>
                         <input type="checkbox" id="Monday" name="week_days" value="Monday">
@@ -91,6 +91,14 @@
                     <div>
                         <input type="checkbox" id="Friday" name="week_days" value="Friday">
                         <label for="Friday">Friday</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Saturday" name="week_days" value="Saturday">
+                        <label for="Saturday">Saturday</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="Sunday" name="week_days" value="Sunday">
+                        <label for="Sunday">Sunday</label>
                     </div>
                 </fieldset>
                 </div>
@@ -126,6 +134,7 @@
         </div>
     </div>
 </div>
+
 <!-- Footer -->
 <div class="fixed-bottom d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-success"></div>
 </body>
