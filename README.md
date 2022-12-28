@@ -1,2 +1,1 @@
-# CS321Project
-# This is our project for CS321
+# Please navigate to the bootstrap branch to see the finished project
