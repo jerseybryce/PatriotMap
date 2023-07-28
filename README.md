@@ -1,2 +1,2 @@
-# CS321Project
-# This is our project for CS321
+PatriotMap is an app that helps students record their schedules and navigate campus through the use
+of an interactive map.
